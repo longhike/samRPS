@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors Part 1</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    
+    // array for rock (r), paper (p), scissors (s)
+    var computerChoices = ["r", "p", "s"];
+
+    // variables to count wins, losses, ties
+    var wins = 0;
+    var losses = 0;
+    var ties = 0;
+    
+    for (var i = 0; i < 10; i++) {
+        // computer choice of r, p, or s
+        var computerThrow = computerChoices[Math.floor(Math.random() * computerChoices.length)]
+        // user choice of r, p, or s
+        var userThrow = prompt("Enter r, p, or s to play!");
+        // make sure goes to lower cose
+        userThrow = userThrow.toLowerCase();
+        //contains full game conditional
+        if (userThrow === "r" || userThrow === "p" || userThrow === "s") {
+
+            alert("Computer chose " + computerThrow)
+
+            if ((userThrow === "r" && computerThrow === "s") || (userThrow === "p" && computerThrow === "r") || (userThrow === "s" && computerThrow === "p")) {
+                wins++
+                alert("You won! You've won " + wins + " times!")
+            }
+
+            else if (userThrow === computerThrow) {
+                ties++
+                alert("You tied. You've tied " + ties + " times.")
+            }
+            
+            else {
+                losses++
+                alert ("You lost. You've lost " + losses + " times.")
+            }
+
+        }
+    }
+
+    alert("Total wins: " + wins + "; Total losses: " + losses + "; Total ties: " + ties)
+    </script>
+  </body>
+</html>
